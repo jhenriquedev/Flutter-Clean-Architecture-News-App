@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import 'package:newsapp/feature/domain/domain.dart';
 
 class GetCreateCurrentUserUsecase {

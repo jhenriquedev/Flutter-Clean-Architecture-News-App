@@ -30,10 +30,20 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
     });
 
   }
+  
+  @override
+  Future<bool> isSignIn() async => auth.currentUser?.uid !=null;
+
+  @override
+  Future<void> signIn(UserEntity user) async => auth.signInWithEmailAndPassword(email: user.email!, password: user.password!);
+
+  @override
+  Future<void> signOut()  async => auth.signOut();
 
   @override
   Future < void > signUp(UserEntity user) async => auth.createUserWithEmailAndPassword(email: user.email!, password: user.password!);
 
   @override
   Future<String> getCurrentUserId() async => auth.currentUser!.uid;
+  
 }

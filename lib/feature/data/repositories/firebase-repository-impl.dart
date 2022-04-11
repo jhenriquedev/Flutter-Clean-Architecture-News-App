@@ -17,4 +17,16 @@ class FirebaseRepositoryImpl extends FirebaseRepository {
   @override
   Future < void > signUp(UserEntity user) async => remoteDataSource.signUp(user);
 
+    @override
+  Future<bool> isSignIn() async =>
+      remoteDataSource.isSignIn();
+
+  @override
+  Future<void> signIn(UserEntity user) async =>
+      remoteDataSource.signIn(user);
+
+  @override
+  Future<void> signOut() async =>
+      remoteDataSource.signOut();
+
 }
