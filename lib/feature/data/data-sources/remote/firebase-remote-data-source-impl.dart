@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:newsapp/feature/data/remote/models/models.dart';
+import 'package:newsapp/feature/data/models/models.dart';
 import 'package:newsapp/feature/domain/domain.dart';
 import 'firebase-remote-data-source.dart';
 

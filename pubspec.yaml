@@ -47,6 +47,12 @@ dependencies:
   intl: ^0.17.0
   #svg
   flutter_svg: ^0.23.0+1
+  # Floor
+  floor: ^1.2.0
+  #Retrofit
+  retrofit: 3.0.1+1 
+  #Hooks
+  flutter_hooks: 0.18.3
 
 dependency_overrides:
   firebase_messaging_platform_interface: 3.2.2
@@ -59,6 +65,10 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  retrofit_generator: 3.0.1+1
+  floor_generator: 1.2.0
+  build_runner: 2.1.2
+  lint: 1.5.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

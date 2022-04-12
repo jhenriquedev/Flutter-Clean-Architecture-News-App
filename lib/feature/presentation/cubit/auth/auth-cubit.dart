@@ -30,7 +30,6 @@ class AuthCubit extends Cubit < AuthState > {
 
   }
 
-
   Future < void > loggedIn() async {
     try {
       final uid = await getCurrentUidUseCase.call();
@@ -41,7 +40,6 @@ class AuthCubit extends Cubit < AuthState > {
 
   }
 
-  
   Future < void > loggedOut() async {
     try {
       await signOutUseCase.call();
