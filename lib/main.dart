@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'config/themes/app-themes.dart';
+import 'feature/presentation/bloc/bloc.dart';
+import 'feature/presentation/screens/home/home.dart';
 import 'injection-container.dart' as di;
-import 'package:firebase_core/firebase_core.dart';
+import 'injection-container.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await di.init();
+  await di.initializeDependencies();
   runApp(const MyApp());
 }
 
@@ -15,11 +17,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: theme(),
-      home: Container(),
+    return BlocProvider<RemoteArticlesBloc>(
+      create: (_) => injector()..add(const GetArticles()),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: theme(),
+        home: BreakingNewsView() ,
+      ),
     );
   }
 }

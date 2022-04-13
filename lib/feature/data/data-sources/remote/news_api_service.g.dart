@@ -27,11 +27,11 @@ class _NewsApiService implements NewsApiService {
       r'pageSize': pageSize
     };
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{"Authorization": "Bearer ff957763c54c44d8b00e5e082bc76cb0"};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<BreakingNewsResponseModel>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
+            Options(method: 'GET', headers: _headers , extra: _extra)
                 .compose(_dio.options, '/top-headlines',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));

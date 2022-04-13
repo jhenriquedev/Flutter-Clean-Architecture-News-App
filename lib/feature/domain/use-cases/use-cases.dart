@@ -1,1 +1,1 @@
-export 'use-cases.dart';
+export 'get-article-use-case.dart';
