@@ -1,3 +1,4 @@
+import 'package:newsapp/core/core.dart';
 import 'package:newsapp/feature/domain/domain.dart';
 import 'source-model.dart';
 
@@ -26,12 +27,11 @@ class ArticleModel extends ArticleEntity {
 
   factory ArticleModel.fromJson(Map < String, dynamic > map) {
     return ArticleModel(
-      //source: SourceModel.fromJson(map['source'] as Map < String, dynamic > ),
       author: map['author'] ?? "",
       title: map['title'] ?? "",
       description: map['description'] ?? "",
       url: map['url'] ?? "",
-      urlToImage: map['urlToImage'] ?? "",
+      urlToImage: map['urlToImage'] != null && map['urlToImage'] != "" ? map['urlToImage'] : kDefaultImage,
       publishedAt: map['publishedAt'] ?? "",
       content: map['content'] ?? "",
     );

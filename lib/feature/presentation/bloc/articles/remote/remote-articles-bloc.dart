@@ -23,14 +23,12 @@ class RemoteArticlesBloc extends BlocWithState < RemoteArticlesEvent, RemoteArti
 
   Stream < RemoteArticlesState > _getBreakingNewsArticle(RemoteArticlesEvent event) async *{
     yield* runBlocProcess(() async *{
-      print("D");
       final dataState = await _getArticlesUseCase(params: ArticlesRequestParams(page: _page));
       if (dataState is DataSuccess && dataState.data!.isNotEmpty) {
         final articles = dataState.data;
         final noMoreData = articles!.length < _pageSize;
         _articles.addAll(articles);
         _page++;
-        print(_page);
 
         yield RemoteArticlesDone(_articles, noMoreData: noMoreData);
       }
