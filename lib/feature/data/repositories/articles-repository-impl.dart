@@ -21,7 +21,6 @@ class ArticlesRepositoryImpl implements ArticlesRepository {
         page: params.page,
         pageSize: params.pageSize,
       );
-      print(httpResponse.response);
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data.articles!);
       }

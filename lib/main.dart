@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'config/routes/routes.dart';
 import 'config/themes/app-themes.dart';
 import 'feature/presentation/bloc/bloc.dart';
 import 'feature/presentation/screens/home/home.dart';
@@ -20,9 +21,9 @@ class MyApp extends StatelessWidget {
     return BlocProvider<RemoteArticlesBloc>(
       create: (_) => injector()..add(const GetArticles()),
       child: MaterialApp(
-        title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: theme(),
+        onGenerateRoute: AppRoutes.onGenerateRoutes,
         home: BreakingNewsView() ,
       ),
     );

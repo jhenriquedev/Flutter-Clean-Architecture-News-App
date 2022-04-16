@@ -68,6 +68,7 @@ class BreakingNewsView extends HookWidget {
   ) {
     return ListView(
       controller: scrollController,
+      physics: BouncingScrollPhysics(),
       children: [
         // Items
         ...List<Widget>.from(
