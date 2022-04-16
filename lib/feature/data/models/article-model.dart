@@ -1,11 +1,9 @@
 import 'package:newsapp/core/core.dart';
 import 'package:newsapp/feature/domain/domain.dart';
-import 'source-model.dart';
 
 class ArticleModel extends ArticleEntity {
   const ArticleModel({
     int ? id,
-    SourceModel ? source,
     String ? author,
     String ? title,
     String ? description,
@@ -15,7 +13,6 @@ class ArticleModel extends ArticleEntity {
     String ? content,
   }): super(
     id: id,
-    source: source,
     author: author,
     title: title,
     description: description,

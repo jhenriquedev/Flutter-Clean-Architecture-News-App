@@ -1,9 +1,10 @@
 import 'package:equatable/equatable.dart';
-import 'source-entity.dart';
+import 'package:floor/floor.dart';
 
+@entity
 class ArticleEntity extends Equatable {
+  @primaryKey
   final int ? id;
-  final SourceEntity ? source;
   final String ? author;
   final String ? title;
   final String ? description;
@@ -14,7 +15,6 @@ class ArticleEntity extends Equatable {
 
   const ArticleEntity({
     this.id,
-    this.source,
     this.author,
     this.title,
     this.description,
@@ -28,7 +28,6 @@ class ArticleEntity extends Equatable {
   List < Object ? > get props {
     return [
       id,
-      source,
       author,
       title,
       description,
