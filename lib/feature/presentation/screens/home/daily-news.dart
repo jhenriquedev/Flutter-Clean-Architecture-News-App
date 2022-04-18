@@ -8,8 +8,8 @@ import 'package:newsapp/feature/presentation/bloc/bloc.dart';
 
 import 'widget/article-tile.dart';
 
-class BreakingNewsView extends HookWidget {
-  const BreakingNewsView({Key? key}) : super(key: key);
+class DailyNews extends HookWidget {
+  const DailyNews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -108,10 +108,10 @@ class BreakingNewsView extends HookWidget {
   }
 
   void _onArticlePressed(BuildContext context, ArticleEntity article) {
-    Navigator.pushNamed(context, '/ArticleDetailsView', arguments: article);
+    Navigator.pushNamed(context, '/ArticleDetails', arguments: article);
   }
 
   void _onShowSavedArticlesViewTapped(BuildContext context) {
-    Navigator.pushNamed(context, '/SavedArticlesView');
+    Navigator.pushNamed(context, '/SavedArticles');
   }
 }

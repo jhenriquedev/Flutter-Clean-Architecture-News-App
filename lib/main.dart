@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'config/routes/routes.dart';
 import 'config/themes/app-themes.dart';
 import 'feature/presentation/bloc/bloc.dart';
-import 'feature/presentation/screens/home/home.dart';
+import 'feature/presentation/screens/home/daily-news.dart';
 import 'injection-container.dart' as di;
 import 'injection-container.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: theme(),
         onGenerateRoute: AppRoutes.onGenerateRoutes,
-        home: BreakingNewsView() ,
+        home: DailyNews() ,
       ),
     );
   }
