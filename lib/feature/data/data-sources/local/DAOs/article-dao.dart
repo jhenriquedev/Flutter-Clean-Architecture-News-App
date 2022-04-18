@@ -1,10 +1,9 @@
 import 'package:floor/floor.dart';
-import 'package:newsapp/core/core.dart';
 import 'package:newsapp/feature/domain/domain.dart';
 
 @dao
 abstract class ArticleDao {
-  @Query('SELECT * FROM $kArticlesTableName')
+  @Query('SELECT * FROM ArticleEntity')
   Future<List<ArticleEntity>> getAllArticles();
 
   @Insert(onConflict: OnConflictStrategy.replace)

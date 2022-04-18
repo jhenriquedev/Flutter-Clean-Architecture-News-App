@@ -3,7 +3,7 @@ import 'package:floor/floor.dart';
 
 @entity
 class ArticleEntity extends Equatable {
-  @primaryKey
+  @PrimaryKey(autoGenerate: true)
   final int ? id;
   final String ? author;
   final String ? title;

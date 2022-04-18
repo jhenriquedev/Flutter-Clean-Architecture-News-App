@@ -11,7 +11,7 @@ final injector = GetIt.instance;
 
 Future<void> initializeDependencies() async {
   
-    // *
+  // *
   final database = await $FloorAppDatabase.databaseBuilder(kDatabaseName).build();
   injector.registerSingleton<AppDatabase>(database);
 
@@ -37,6 +37,11 @@ Future<void> initializeDependencies() async {
   // Blocs
   injector.registerFactory<RemoteArticlesBloc>(
     () => RemoteArticlesBloc(injector()),
+  );
+
+  // *
+  injector.registerFactory<LocalArticlesBloc>(
+    () => LocalArticlesBloc(injector(), injector(), injector()),
   );
 
 }

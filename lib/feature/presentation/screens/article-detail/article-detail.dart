@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:newsapp/feature/domain/domain.dart';
+import 'package:newsapp/feature/presentation/bloc/bloc.dart';
+import 'package:newsapp/injection-container.dart';
 
 class ArticleDetailsView extends HookWidget {
   final ArticleEntity ? article;
@@ -10,9 +13,13 @@ class ArticleDetailsView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: _buildBody(),
+    return BlocProvider(
+      create: (_) => injector<LocalArticlesBloc>(),
+      child: Scaffold(
+        appBar: _buildAppBar(),
+        body: _buildBody(),
+        floatingActionButton: _buildFloatingActionButton(),
+      ),
     );
   }
 
@@ -88,8 +95,28 @@ class ArticleDetailsView extends HookWidget {
     );
   }
 
+    Widget _buildFloatingActionButton() {
+    return Builder(
+      builder: (context) => FloatingActionButton(
+        onPressed: () => _onFloatingActionButtonPressed(context),
+        child: const Icon(Ionicons.bookmark, color: Colors.white),
+      ),
+    );
+  }
+
   void _onBackButtonTapped(BuildContext context) {
     Navigator.pop(context);
+  }
+
+  
+  void _onFloatingActionButtonPressed(BuildContext context) {
+    BlocProvider.of < LocalArticlesBloc > (context).add(SaveArticle(article!));
+    Scaffold.of(context).showSnackBar(
+      const SnackBar(
+        backgroundColor: Colors.black,
+        content: Text('Article saved successfully.'),
+      ),
+    );
   }
 
 }

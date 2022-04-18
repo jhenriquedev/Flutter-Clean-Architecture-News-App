@@ -7,7 +7,6 @@ import 'DAOs/article-dao.dart';
 part 'app_database.g.dart';
 
 @Database(version: 1, entities: [ArticleEntity])
-
 abstract class AppDatabase extends FloorDatabase {
   ArticleDao get articleDao;
 }
